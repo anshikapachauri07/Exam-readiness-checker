@@ -1,0 +1,108 @@
+1. Start the program.
+
+2. Display the title "EXAM READINESS CHECKER".
+
+3. Ask the user to enter their name.
+
+4. Input the total number of topics and the number of completed topics.
+
+5. Validate the topic values:
+   a. Total topics must be greater than 0.
+   b. Completed topics must be between 0 and total topics.
+   c. If the values are invalid, display an error message and ask again.
+
+6. Calculate syllabus completion percentage:
+      Completion = (Completed Topics / Total Topics) × 100
+
+7. Determine the syllabus status:
+   a. If completion ≥ 80%, status is "Excellent".
+   b. If completion ≥ 60%, status is "Good".
+   c. If completion ≥ 40%, status is "Moderate".
+   d. Otherwise, status is "Needs Improvement".
+
+8. Input the number of practice questions attempted and the number of correct answers.
+
+9. Validate the practice values:
+   a. Attempted questions must be greater than 0.
+   b. Correct answers must be between 0 and attempted questions.
+   c. If invalid, ask the user to enter the values again.
+
+10. Calculate practice accuracy:
+       Accuracy = (Correct Answers / Attempted Questions) × 100
+
+11. Determine the practice status using the same percentage ranges:
+       ≥ 80% → Excellent
+       ≥ 60% → Good
+       ≥ 40% → Moderate
+       < 40% → Needs Improvement
+
+12. Input the number of mock tests attempted and the average mock test score.
+
+13. Validate the mock test information:
+    a. Mock tests must be greater than 0.
+    b. Mock score must be between 0 and 100.
+    c. If invalid, ask the user to enter the values again.
+
+14. Determine the mock test status:
+       ≥ 80% → Excellent
+       ≥ 60% → Good
+       ≥ 40% → Moderate
+       < 40% → Needs Improvement
+
+15. Input the planned revision sessions and completed revision sessions.
+
+16. Validate the revision values:
+    a. Planned sessions must be greater than 0.
+    b. Completed sessions must be between 0 and planned sessions.
+    c. If invalid, ask the user to enter the values again.
+
+17. Calculate revision completion percentage:
+       Revision Percentage =
+       (Completed Revision / Planned Revision) × 100
+
+18. Determine the revision status using the percentage ranges:
+       ≥ 80% → Excellent
+       ≥ 60% → Good
+       ≥ 40% → Moderate
+       < 40% → Needs Improvement
+
+19. Call the overall readiness function using:
+       Syllabus Completion
+       Practice Accuracy
+       Mock Test Score
+       Revision Percentage
+
+20. Calculate the overall readiness score:
+       Overall Score =
+       (Syllabus + Practice + Mock Test + Revision) / 4
+
+21. Determine the overall status:
+    a. If overall score ≥ 80%, status is "Excellent".
+    b. If overall score ≥ 60%, status is "Good".
+    c. Otherwise, status is "Needs Improvement".
+
+22. Create an empty list called weak_areas.
+
+23. Check each performance area:
+    a. If syllabus completion < 60%, add "Syllabus Completion".
+    b. If practice accuracy < 60%, add "Practice Accuracy".
+    c. If mock score < 60%, add "Mock Test Performance".
+    d. If revision percentage < 60%, add "Revision".
+
+24. Display the final readiness report containing:
+    a. Student name
+    b. Syllabus completion and status
+    c. Practice accuracy and status
+    d. Mock test score and status
+    e. Revision percentage and status
+    f. Overall readiness score
+    g. Overall status
+
+25. If the weak_areas list is empty, display:
+       "Areas Needing Improvement: None"
+
+26. Otherwise, display all the areas stored in weak_areas.
+
+27. Display "END OF READINESS REPORT".
+
+28. Stop the program.

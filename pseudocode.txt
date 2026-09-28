@@ -1,0 +1,181 @@
+BEGIN
+
+DISPLAY "EXAM READINESS CHECKER"
+
+INPUT name
+
+REPEAT
+    INPUT total_topics
+    INPUT completed_topics
+
+    IF total_topics > 0 AND
+       completed_topics >= 0 AND
+       completed_topics <= total_topics
+    THEN
+        EXIT LOOP
+    ELSE
+        DISPLAY "Invalid input"
+    END IF
+UNTIL valid input
+
+completion ← (completed_topics / total_topics) × 100
+
+IF completion >= 80 THEN
+    syllabus_status ← "Excellent"
+ELSE IF completion >= 60 THEN
+    syllabus_status ← "Good"
+ELSE IF completion >= 40 THEN
+    syllabus_status ← "Moderate"
+ELSE
+    syllabus_status ← "Needs Improvement"
+END IF
+
+
+REPEAT
+    INPUT attempted
+    INPUT correct
+
+    IF attempted > 0 AND
+       correct >= 0 AND
+       correct <= attempted
+    THEN
+        EXIT LOOP
+    ELSE
+        DISPLAY "Invalid input"
+    END IF
+UNTIL valid input
+
+accuracy ← (correct / attempted) × 100
+
+IF accuracy >= 80 THEN
+    practice_status ← "Excellent"
+ELSE IF accuracy >= 60 THEN
+    practice_status ← "Good"
+ELSE IF accuracy >= 40 THEN
+    practice_status ← "Moderate"
+ELSE
+    practice_status ← "Needs Improvement"
+END IF
+
+
+REPEAT
+    INPUT mock_tests
+    INPUT mock_score
+
+    IF mock_tests > 0 AND
+       mock_score >= 0 AND
+       mock_score <= 100
+    THEN
+        EXIT LOOP
+    ELSE
+        DISPLAY "Invalid input"
+    END IF
+UNTIL valid input
+
+IF mock_score >= 80 THEN
+    mock_status ← "Excellent"
+ELSE IF mock_score >= 60 THEN
+    mock_status ← "Good"
+ELSE IF mock_score >= 40 THEN
+    mock_status ← "Moderate"
+ELSE
+    mock_status ← "Needs Improvement"
+END IF
+
+
+REPEAT
+    INPUT revision_planned
+    INPUT revision_completed
+
+    IF revision_planned > 0 AND
+       revision_completed >= 0 AND
+       revision_completed <= revision_planned
+    THEN
+        EXIT LOOP
+    ELSE
+        DISPLAY "Invalid input"
+    END IF
+UNTIL valid input
+
+revision_percentage ←
+    (revision_completed / revision_planned) × 100
+
+IF revision_percentage >= 80 THEN
+    revision_status ← "Excellent"
+ELSE IF revision_percentage >= 60 THEN
+    revision_status ← "Good"
+ELSE IF revision_percentage >= 40 THEN
+    revision_status ← "Moderate"
+ELSE
+    revision_status ← "Needs Improvement"
+END IF
+
+
+FUNCTION overall_readiness(syllabus, practice, mock_test, revision)
+
+    overall_score ←
+        (syllabus + practice + mock_test + revision) / 4
+
+    IF overall_score >= 80 THEN
+        status ← "Excellent"
+    ELSE IF overall_score >= 60 THEN
+        status ← "Good"
+    ELSE
+        status ← "Needs Improvement"
+    END IF
+
+    RETURN overall_score, status
+
+END FUNCTION
+
+
+(score, status) ← overall_readiness(
+    completion,
+    accuracy,
+    mock_score,
+    revision_percentage
+)
+
+
+CREATE empty list weak_areas
+
+IF completion < 60 THEN
+    ADD "Syllabus Completion" TO weak_areas
+END IF
+
+IF accuracy < 60 THEN
+    ADD "Practice Accuracy" TO weak_areas
+END IF
+
+IF mock_score < 60 THEN
+    ADD "Mock Test Performance" TO weak_areas
+END IF
+
+IF revision_percentage < 60 THEN
+    ADD "Revision" TO weak_areas
+END IF
+
+
+DISPLAY "FINAL RESULT"
+DISPLAY name
+
+DISPLAY syllabus completion and syllabus status
+DISPLAY practice accuracy and practice status
+DISPLAY mock test score and mock status
+DISPLAY revision percentage and revision status
+
+DISPLAY overall readiness score
+DISPLAY overall status
+
+IF weak_areas is empty THEN
+    DISPLAY "Areas Needing Improvement: None"
+ELSE
+    DISPLAY "Areas Needing Improvement:"
+    FOR each area IN weak_areas
+        DISPLAY area
+    END FOR
+END IF
+
+DISPLAY "END OF READINESS REPORT"
+
+END
